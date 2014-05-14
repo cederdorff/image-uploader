@@ -1,0 +1,12 @@
+body {
+	padding-top: 70px;
+}
+
+/* Hide Angular JS elements before initializing */
+.ng-cloak {
+	display: none;
+}
+
+.preview img{
+	max-width: 125px;
+}
