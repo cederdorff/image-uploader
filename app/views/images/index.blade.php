@@ -1,0 +1,1 @@
+/Applications/MAMP/htdocs/laravel/image-uploader/app/views/images/index.blade.php
