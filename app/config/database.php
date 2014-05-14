@@ -57,7 +57,7 @@ return array(
 			'host'      => 'mysql31.unoeuro.com',
 			'database'  => 'onearmaway_com_db',
 			'username'  => 'onearmaway_com',
-			'password'  => 'marianatasha01',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
