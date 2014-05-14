@@ -175,7 +175,7 @@
             this.$get = function () {
                 return function (bytes) {
                     if (!angular.isNumber(bytes)) {
-                        return '';
+                        bytes = parseInt(bytes);
                     }
                     var unit = true,
                         i = 0,
