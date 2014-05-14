@@ -10,23 +10,26 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/uploader', function(){
-	return View::make('uploader');	
-});
+
 Route::get('/', function(){
 	return View::make('index');	
 });
 
-Route::group(array('prefix' => 'api'), function(){
+// Login routes
+Route::post('login', array('uses' => 'UsersController@login'));
+Route::get('logout', array('uses' => 'UsersController@logout'));
+Route::get('login', array('uses' => 'UsersController@showLogin'));
+
+Route::group(array('before' => 'auth'), function(){
+	Route::get('/uploader', function(){
+		return View::make('uploader');	
+	});
+	Route::get('/users', function(){
+		return View::make('users.index');	
+	});
+	Route::group(array('prefix' => 'api'), function(){
 	// Route ressource. Kan tilgås ved /api/users
-	Route::resource('images', 'UploadController');
+		Route::resource('users', 'UsersController');
+		Route::resource('images', 'UploadController');
+	});
 });
-
-Route::post('api/images', array('uses' => 'UploadController@save'));
-// Route::get('api/images', array('uses' => 'UploadController@index'));
-// Route::delete('api/images/(:num)', array('uses' => 'UploadController@destroy'));
-
-// Route::group(array('prefix' => 'api'), function(){
-// 	// Route ressource. Kan tilgås ved /api/users
-// 	Route::resource('images', 'UploadController');
-// });

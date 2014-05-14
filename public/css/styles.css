@@ -10,3 +10,13 @@ body {
 .preview img{
 	max-width: 125px;
 }
+
+#createUserBtn {
+	margin-right: 15px;
+	margin-top: 15px;
+}
+@media (min-width: 768px) {
+	#createUserBtn {
+		margin-top: 0;
+	}
+}

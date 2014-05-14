@@ -18,7 +18,7 @@ class UploadController extends \BaseController {
 	 *
 	 * @return Response
 	 */
-	public function save()
+	public function store()
 	{
 		// Grab our files input
 		$files = Input::file('files');
