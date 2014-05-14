@@ -10,8 +10,11 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
-Route::get('/', function(){
+Route::get('/uploader', function(){
 	return View::make('uploader');	
+});
+Route::get('/', function(){
+	return View::make('index');	
 });
 
 Route::group(array('prefix' => 'api'), function(){
