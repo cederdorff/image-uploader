@@ -9,7 +9,11 @@ class UploadController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(array('files'=>Image::get()->toArray()));
+		$currentUser = null;
+		if(Auth::user()){
+			$currentUser = Auth::user()->toArray();
+		}
+		return Response::json(array('files'=>Image::get()->toArray(), 'authUser' => $currentUser));
 	}
 
 
