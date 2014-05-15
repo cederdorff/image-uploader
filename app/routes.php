@@ -17,13 +17,10 @@ Route::get('/', function(){
 
 // Login routes
 Route::post('login', array('uses' => 'LoginController@login'));
-// Route::get('logout', array('uses' => 'LoginController@logout'));
+Route::get('logout', array('uses' => 'LoginController@logout'));
 Route::get('login', array('uses' => 'LoginController@index'));
-Route::get('logout', function()
-{
-    Auth::logout();
-    return Redirect::to('login');
-});
+
+Route::get('images', array('uses' => 'UploadController@index'));
 
 Route::group(array('before' => 'auth'), function(){
 	Route::get('/admin', function(){
