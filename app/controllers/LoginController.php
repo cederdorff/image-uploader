@@ -27,7 +27,7 @@ class LoginController extends \BaseController {
         		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
         			Session::flash('status', 'success');
         			Session::flash('message', 'Successfully logged in!');
-        			return Redirect::intended('/');
+        			return Redirect::intended('/uploader');
         		} else {
         			Session::flash('status', 'danger');
         			Session::flash('message', 'Incorrect login details!');
