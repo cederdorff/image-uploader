@@ -15,18 +15,28 @@
 <body data-ng-app="imageUploader">
 <!--   <header ng-include src="'includes/header.html'"></header> -->
 <div class="container">
-  <h1>Galleri</h1>
-  <br>
-  <div data-ng-controller="ImageController"> <a data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a> </div>
-</div>
-
-<!-- The blueimp Gallery widget -->
-<div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
-  <div class="slides"></div>
-  <h3 class="title"></h3>
-  <a class="prev">‹</a> <a class="next">›</a> <a class="close">×</a> <a class="play-pause"></a>
-  <ol class="indicator">
-  </ol>
+  <div class="row">
+    <div class="col-md-4">
+      <header class="galleryHeader">
+        <h1>--Navn--</h1>
+      </header>
+    </div>
+    <div class="col-md-8">
+      <header class="galleryHeader">
+        <h1>Galleri</h1>
+      </header>
+      <div data-ng-controller="ImageController"> <a data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a> </div>
+    </div>
+    
+    <!-- The blueimp Gallery widget -->
+    <div id="blueimp-gallery" class="blueimp-gallery blueimp-gallery-controls" data-filter=":even">
+      <div class="slides"></div>
+      <h3 class="title"></h3>
+      <a class="prev">‹</a> <a class="next">›</a> <a class="close">×</a> <a class="play-pause"></a>
+      <ol class="indicator">
+      </ol>
+    </div>
+  </div>
 </div>
 <footer ng-include src="'includes/footer.html'"></footer>
 
@@ -39,6 +49,5 @@
 <script src="libs/jquery-file-upload/js/jquery.fileupload-angular.js"></script> 
 <script src="js/app.js"></script> 
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
-
 </body>
 </html>
