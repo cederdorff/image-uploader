@@ -15,7 +15,9 @@
 <body data-ng-app="imageUploader">
 <!--   <header ng-include src="'includes/header.html'"></header> -->
 <div class="container">
-  <h1>Galleri</h1>
+<header class="styleMe">
+  <h1 >Galleri</h1>
+  </header>
   <br>
   <div data-ng-controller="ImageController"> <a data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}" data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a> </div>
 </div>

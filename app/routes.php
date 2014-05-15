@@ -29,8 +29,11 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('/uploader', function(){
 		return View::make('admin.uploader');	
 	});
-	Route::get('/users', function(){
-		return View::make('admin.users');	
+	Route::group(array('before' => 'admin_auth'), function()
+	{
+		Route::get('/users', function(){
+			return View::make('admin.users');	
+		});
 	});
 	Route::group(array('prefix' => 'api'), function(){
 	// Route ressource. Kan tilgås ved /api/users
