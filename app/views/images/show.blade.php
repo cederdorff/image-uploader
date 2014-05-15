@@ -1,1 +1,0 @@
-/Applications/MAMP/htdocs/laravel/image-uploader/app/views/images/show.blade.php

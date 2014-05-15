@@ -27,7 +27,7 @@ class LoginController extends \BaseController {
         		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
         			Session::flash('status', 'success');
         			Session::flash('message', 'Successfully logged in!');
-        			return Redirect::to('uploader');
+        			return Redirect::intended('/');
         		} else {
         			Session::flash('status', 'danger');
         			Session::flash('message', 'Incorrect login details!');
@@ -44,7 +44,8 @@ class LoginController extends \BaseController {
     public function logout() 
     {
     	Auth::logout();
-    	return Redirect::to('/');
+        Session::flush();
+        return Redirect::to('/');
     }
 
 }

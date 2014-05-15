@@ -16,16 +16,24 @@ Route::get('/', function(){
 });
 
 // Login routes
-Route::post('login', array('uses' => 'UsersController@login'));
-Route::get('logout', array('uses' => 'UsersController@logout'));
-Route::get('login', array('uses' => 'UsersController@showLogin'));
+Route::post('login', array('uses' => 'LoginController@login'));
+// Route::get('logout', array('uses' => 'LoginController@logout'));
+Route::get('login', array('uses' => 'LoginController@index'));
+Route::get('logout', function()
+{
+    Auth::logout();
+    return Redirect::to('login');
+});
 
 Route::group(array('before' => 'auth'), function(){
+	Route::get('/admin', function(){
+		return View::make('admin.uploader');	
+	});
 	Route::get('/uploader', function(){
-		return View::make('uploader');	
+		return View::make('admin.uploader');	
 	});
 	Route::get('/users', function(){
-		return View::make('users.index');	
+		return View::make('admin.users');	
 	});
 	Route::group(array('prefix' => 'api'), function(){
 	// Route ressource. Kan tilgås ved /api/users
