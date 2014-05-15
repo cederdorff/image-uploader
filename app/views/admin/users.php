@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>User CRUD</title>
+  <title>Fotouploader | Brugere</title>
   <!-- Bootstrap -->
   <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -12,29 +12,29 @@
 <body>
   <div ng-include src="'includes/header.html'"></div>
   <div class="container">
-    <h1>User CRUD</h1>
+    <h1>Brugere</h1>
     <form class="form-horizontal " role="form">
       <div class="form-group">
         <div class="col-sm-4">
-          <input ng-model="searchText" type="text" class="form-control" placeholder="Search">
+          <input ng-model="searchText" type="text" class="form-control" placeholder="Søg">
         </div>
-        <label class="col-lg-1 col-sm-2 control-label">Order by:</label>
+        <label class="col-lg-1 col-sm-2 control-label">Sorter efter:</label>
         <div class="col-sm-2">
           <select class="form-control" ng-model="selectedOrder">
-            <option value="name">name</option>
+            <option value="name">navn</option>
             <option value="email">email</option>
             <option value="created_at">created at</option>
             <option value="updated_at">updated at</option>
           </select>
         </div>
-        <button id="createUserBtn" class="btn btn-success pull-right" ng-click="showUser(null)">Create New User</button>
+        <button id="createUserBtn" class="btn btn-success pull-right" ng-click="showUser(null)">Opret bruger</button>
       </div>
     </form>
     <div class="list-group">
       <a class="list-group-item" ng-repeat="user in userData | filter:searchText | orderBy: selectedOrder">
         <div class="pull-right">
-          <button class="btn btn-primary" ng-click="showUser(user)">Edit</button>
-          <button class="btn btn-danger" ng-click="deleteUser(user)">Delete</button>
+          <button class="btn btn-primary" ng-click="showUser(user)">Rediger</button>
+          <button class="btn btn-danger" ng-click="deleteUser(user)">Slet</button>
         </div>
         <h4 class="list-group-item-heading">{{user.name}}</h4>
         <p class="list-group-item-text"><small>Email: </small>{{user.email}}</p>
@@ -52,9 +52,9 @@
         <form class="form-horizontal simple-form" role="form">
           <div class="modal-body">
             <div class="form-group">
-              <label for="inputName" class="col-sm-2 control-label">Name</label>
+              <label for="inputName" class="col-sm-2 control-label">Navn</label>
               <div class="col-sm-10">
-                <input ng-model="user.name" type="text" class="form-control" id="inputName" placeholder="Name" required>
+                <input ng-model="user.name" type="text" class="form-control" id="inputName" placeholder="Navn" required>
               </div>
             </div>
             <div class="form-group">
@@ -64,9 +64,9 @@
               </div>
             </div>
             <div class="form-group">
-              <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+              <label for="inputPassword3" class="col-sm-2 control-label">Adgangskode</label>
               <div class="col-sm-10">
-                <input ng-model="user.password" type="password" class="form-control" id="inputPassword" placeholder="Password" required>
+                <input ng-model="user.password" type="password" class="form-control" id="inputPassword" placeholder="Adgangskode" required>
               </div>
             </div>
             <div class="form-group" ng-show="message">

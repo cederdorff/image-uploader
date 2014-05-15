@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fotouploader</title>
+  <title>Fotouploader | Uploader</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.min.css">
   <!-- Custom Styles -->
@@ -88,11 +88,11 @@
           </button>
           <button type="button" class="btn btn-warning cancel" data-ng-click="file.$cancel()" data-ng-hide="!file.$cancel">
             <i class="glyphicon glyphicon-ban-circle"></i>
-            <span>Cancel</span>
+            <span>Annuller</span>
           </button>
           <button data-ng-controller="FileDestroyController" type="button" class="btn btn-danger destroy" data-ng-click="file.$destroy()" data-ng-hide="!file.$destroy">
             <i class="glyphicon glyphicon-trash"></i>
-            <span>Delete</span>
+            <span>Slet</span>
           </button>
         </td>
       </tr>

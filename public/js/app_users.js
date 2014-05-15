@@ -118,9 +118,9 @@ var userApp = angular.module("userApp", []);
         if (userToEdit != null) {
             $scope.user = JSON.parse(JSON.stringify(userToEdit)); // laver kopi af den valgte bruger, så der ikke redigeres direkte på den valgte
             $scope.selecedtedUserIndex = $scope.userData.indexOf(userToEdit);
-            $("#userModal .modal-title").html("Edit '" + userToEdit.name + "'");
+            $("#userModal .modal-title").html("Rediger '" + userToEdit.name + "'");
         } else {
-            $("#userModal .modal-title").html("Create New User");
+            $("#userModal .modal-title").html("Opret ny bruger");
             $scope.user = null;
         }
         $("#userModal").modal("show");
