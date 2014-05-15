@@ -139,7 +139,7 @@
 <script src="libs/jquery-file-upload/js/jquery.fileupload-validate.js"></script>
 <!-- The File Upload Angular JS module -->
 <script src="libs/jquery-file-upload/js/jquery.fileupload-angular.js"></script>
-<script src="js/app.js"></script>
+<script src="js/app_images.js"></script>
 <script src="libs/bootstrap/js/bootstrap.min.js"></script>
 </body>
 </html>

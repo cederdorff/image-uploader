@@ -44,7 +44,6 @@ class LoginController extends \BaseController {
     public function logout() 
     {
     	Auth::logout();
-        Session::flush();
         return Redirect::to('/');
     }
 
