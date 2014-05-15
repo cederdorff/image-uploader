@@ -30,7 +30,7 @@
             }
         ])
 
-        .controller('DemoFileUploadController', [
+        .controller('ImageUserController', [
             '$scope', '$http', '$filter', '$window',
             function ($scope, $http) {
                 $scope.options = {
@@ -43,6 +43,7 @@
                             function (response) {
                                 $scope.loadingFiles = false;
                                 $scope.queue = response.data.files || [];
+                                $scope.authUser = response.data.authUser;
                             },
                             function () {
                                 $scope.loadingFiles = false;

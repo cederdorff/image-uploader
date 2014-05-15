@@ -22,16 +22,18 @@ class LoginController extends \BaseController {
         	$validator = Validator::make(Input::all(), array('email' => 'required|email', 'password' => 'required'));
         	
         	if ($validator->fails()) {
-        		return Redirect::to('login')->withErrors($validator)->withInput(Input::except('password'));
+                return Response::json([
+                    'flash' => 'Validation failed', 'errors' => $validator],
+                401
+            );
         	} else {
         		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
-        			Session::flash('status', 'success');
-        			Session::flash('message', 'Successfully logged in!');
         			return Redirect::intended('/uploader');
         		} else {
-        			Session::flash('status', 'danger');
-        			Session::flash('message', 'Incorrect login details!');
-        			return Redirect::to('login');
+        			return Response::json([
+                    'flash' => 'Authentication failed'],
+                401
+            );
         		}
         	}
         }

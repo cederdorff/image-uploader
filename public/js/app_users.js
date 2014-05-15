@@ -50,7 +50,8 @@ var userApp = angular.module("userApp", []);
      */
      $scope.load = function() {
         UserData.load().then(function(result) {
-            $scope.userData = result.data;
+            $scope.userData = result.data.users;
+            $scope.authUser = result.data.authUser;
         }, function(error) {
             console.log("Error: " + error);
         });

@@ -9,8 +9,8 @@ class UsersController extends \BaseController {
 	 */
 	public function index()
 	{
-		return Response::json(User::get());
-	}
+        return Response::json(array('users'=>User::get()->toArray(), 'authUser' => Auth::user()->toArray()));
+    }
 
 	/**
 	 * Show the form for creating a new resource.

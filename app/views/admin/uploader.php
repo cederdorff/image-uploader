@@ -18,13 +18,13 @@
   <noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-noscript.css"></noscript>
   <noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
 </head>
-<body data-ng-app="imageUploader">
-  <header ng-include src="'includes/header.html'"></header>
+<body data-ng-app="imageUploader" >
+  <header ng-include src="'includes/header.html'" ng-controller="ImageUserController"></header>
   <div class="container">
     <h1>Upload billeder</h1>
     <br>
     <!-- The file upload form used as target for the file upload widget -->
-    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" data-ng-controller="DemoFileUploadController" data-file-upload="options" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
+    <form id="fileupload" action="//jquery-file-upload.appspot.com/" method="POST" enctype="multipart/form-data" data-file-upload="options" data-ng-controller="ImageUserController" data-ng-class="{'fileupload-processing': processing() || loadingFiles}">
       <!-- Redirect browsers with JavaScript disabled to the origin page -->
       <noscript><input type="hidden" name="redirect" value="http://blueimp.github.io/jQuery-File-Upload/"></noscript>
       <!-- The fileupload-buttonbar contains buttons to add/delete files and start/cancel the upload -->
