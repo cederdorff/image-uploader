@@ -14,7 +14,7 @@
         <li class=""><a href="uploader">Uploader</a></li>
       </ul>
       <ul class="nav navbar-nav">
-        <li class=""><a href="users">Users</a></li>
+        <li ng-show="authUser.type=='admin'"><a href="users">Users</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a>{{authUser.name}}</a></li>

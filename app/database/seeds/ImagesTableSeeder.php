@@ -11,9 +11,7 @@ class ImagesTableSeeder extends Seeder {
 
 		foreach(range(1, 10) as $index)
 		{
-			Image::create([
-
-			]);
+			Image::create(array());
 		}
 	}
 

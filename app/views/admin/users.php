@@ -23,8 +23,9 @@
           <select class="form-control" ng-model="selectedOrder">
             <option value="name">navn</option>
             <option value="email">email</option>
-            <option value="created_at">created at</option>
-            <option value="updated_at">updated at</option>
+            <option value="type">type</option>
+            <option value="created_at">oprettet den</option>
+            <option value="updated_at">opdateret den</option>
           </select>
         </div>
         <button id="createUserBtn" class="btn btn-success pull-right" ng-click="showUser(null)">Opret bruger</button>
@@ -36,7 +37,7 @@
           <button class="btn btn-primary" ng-click="showUser(user)">Rediger</button>
           <button class="btn btn-danger" ng-click="deleteUser(user)">Slet</button>
         </div>
-        <h4 class="list-group-item-heading">{{user.name}}</h4>
+        <h4 class="list-group-item-heading">{{user.name}} <small>({{user.type}})</small></h4>
         <p class="list-group-item-text"><small>Email: </small>{{user.email}}</p>
       </a>
     </div>

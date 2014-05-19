@@ -35,7 +35,7 @@ class UploadController extends \BaseController {
 		foreach ($files as $file) {
 
         // set our results to have our asset path
-			$image = new image;
+			$image = new Image;
 			$name = $file->getClientOriginalName();
 
 			$image->name = $name;

@@ -22,16 +22,16 @@ class LoginController extends \BaseController {
         	$validator = Validator::make(Input::all(), array('email' => 'required|email', 'password' => 'required'));
         	
         	if ($validator->fails()) {
-                return Response::json([
-                    'flash' => 'Validation failed', 'errors' => $validator],
+                return Response::json(array(
+                    'flash' => 'Validation failed', 'errors' => $validator),
                 401
             );
         	} else {
         		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
         			return Redirect::intended('/uploader');
         		} else {
-        			return Response::json([
-                    'flash' => 'Authentication failed'],
+        			return Response::json(array(
+                    'flash' => 'Authentication failed'),
                 401
             );
         		}

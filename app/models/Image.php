@@ -1,5 +1,5 @@
 <?php
 
 class Image extends \Eloquent {
-	protected $fillable = [];
+	protected $fillable = array();
 }

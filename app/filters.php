@@ -62,8 +62,8 @@ Route::filter('guest', function()
 
 Route::filter('admin_auth', function()
 {
-    if(Auth::guest() || !Auth::user()->type =="admin") {
-        return Redirect::to('/');
+    if(Auth::guest() || !Auth::user()->isAdmin()) {
+        return Redirect::to('/admin');
     }
 });
 

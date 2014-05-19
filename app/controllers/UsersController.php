@@ -35,7 +35,7 @@ class UsersController extends \BaseController {
         if ($v->fails()) {
             return Response::json(array('success' => false, 'message' => $v->messages()->toArray()));
         } else {
-            $user = new user;
+            $user = new User;
             $user->name = Input::get('name');
             $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));

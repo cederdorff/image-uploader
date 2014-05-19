@@ -60,7 +60,7 @@
       <!-- <div data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}">
         <a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a>
       </div> -->
-      <tr data-ng-repeat="file in queue" data-ng-class="{'processing': file.$processing()}">
+      <tr data-ng-repeat="file in queue | orderBy:'created_at':true" data-ng-class="{'processing': file.$processing()}">
         <td data-ng-switch data-on="!!file.thumbnailUrl">
           <div class="preview" data-ng-switch-when="true">
             <a data-ng-href="{{file.url}}" title="{{file.name}}" download="{{file.name}}" data-gallery><img data-ng-src="{{file.thumbnailUrl}}" alt=""></a>

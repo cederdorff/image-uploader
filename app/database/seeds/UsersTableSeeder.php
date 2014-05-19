@@ -11,9 +11,7 @@ class UsersTableSeeder extends Seeder {
 
 		foreach(range(1, 10) as $index)
 		{
-			User::create([
-
-			]);
+			User::create(array());
 		}
 	}
 
