@@ -19,6 +19,10 @@ Route::get('/test', function(){
 	return View::make('admin.index');	
 });
 
+Route::get('/paul', function(){
+	return View::make('paul');	
+});
+
 // Login routes
 Route::post('login', array('uses' => 'LoginController@login'));
 Route::get('logout', array('uses' => 'LoginController@logout'));

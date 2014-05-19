@@ -1,11 +1,10 @@
-body {
-	padding-top: 70px;
-}
+/* CSS Document */
 
 /* gallery styling start */
 .galleryHeader{
 	text-align:center;	
 }
+
 
 .imgPort{
 	width:75%;
@@ -17,7 +16,6 @@ body {
 	padding-bottom:50px;
 	padding-top:0px;
 }
-/* gallery styling end */
 
 .thumbnailsOversigt img{
 	width:10%;
@@ -26,6 +24,8 @@ body {
 .footer{
 	height:40px;	
 }
+
+/* gallery styling end */
 
 /* Hide Angular JS elements before initializing */
 .ng-cloak {
@@ -46,5 +46,3 @@ body {
 		margin-top: 0;
 	}
 }
-
-
