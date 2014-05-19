@@ -2,6 +2,14 @@ body {
 	padding-top: 70px;
 }
 
+<!-- gallery styling start -->
+.galleryHeader{
+	text-align:center;	
+}
+
+
+<!-- gallery styling end -->
+
 /* Hide Angular JS elements before initializing */
 .ng-cloak {
 	display: none;
@@ -20,3 +28,5 @@ body {
 		margin-top: 0;
 	}
 }
+
+
