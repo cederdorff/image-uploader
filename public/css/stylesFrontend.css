@@ -17,6 +17,11 @@
 	padding-top:0px;
 }
 
+.navbar-brand > img {
+	width: 250px; 
+	height: 83px;
+}
+
 .thumbnailsOversigt img{
 	width:10%;
 }
@@ -25,6 +30,9 @@
 	height:40px;	
 }
 
+.previews div{
+	display:inline-block
+}
 /* gallery styling end */
 
 /* Hide Angular JS elements before initializing */
@@ -34,15 +42,4 @@
 
 .preview img{
 	max-width: 100px;
-}
-
-#createUserBtn {
-	margin-right: 15px;
-	margin-top: 15px;
-}
-
-@media (min-width: 768px) {
-	#createUserBtn {
-		margin-top: 0;
-	}
 }

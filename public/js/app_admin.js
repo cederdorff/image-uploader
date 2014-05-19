@@ -1,10 +1,43 @@
-var userApp = angular.module("userApp", []);
+// app.js
+
+// define our application and pull in ngRoute and ngAnimate
+var imageUploaderApp = angular.module('imageUploaderAdmin', ['ngRoute', 'blueimp.fileupload'
+    ])
+.config([
+    '$httpProvider', 'fileUploadProvider',
+    function ($httpProvider, fileUploadProvider) {
+        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        fileUploadProvider.defaults.redirect = window.location.href.replace(
+            /\/[^\/]*$/,
+            '/cors/result.html?%s'
+            );
+    }
+    ]);
+
+// ROUTING ===============================================
+// set our routing for this application
+// each route will pull in a different controller
+imageUploaderApp.config(function($routeProvider) {
+    
+    $routeProvider
+
+    .when('/', {
+        templateUrl: '/uploader',
+    })
+
+    .when('/users', {
+        templateUrl: '/users',
+        controller: 'userController'
+    });
+
+});
+
 /*
  * Factory metode, som beskriver de services der anvendes og tilbydes.
  * load, save og delete sender alle et http request med parametre,
  * der behandles på serveren og sender et response tilbage, evt med data.
  */
- userApp.factory("UserData", ["$http",
+ imageUploaderApp.factory("UserData", ["$http",
     function($http) {
         return {
             load: function() {
@@ -40,12 +73,63 @@ var userApp = angular.module("userApp", []);
         }
     }
     ]);
-/*
- * Controlleren DataCtrl initialiseres.
- * Vha $scope forbindes view og controller
- */
- userApp.controller("DataCtrl", function($scope, UserData) {
-    /*
+// CONTROLLERS =====================================================================
+imageUploaderApp.controller('ImageUserController', [
+    '$scope', '$http', '$filter', '$window',
+    function ($scope, $http) {
+        $scope.options = {
+            url: '/api/images'
+        };
+        $scope.loadingFiles = true;
+        $http.get('/api/images')
+        .then(
+            function (response) {
+                $scope.loadingFiles = false;
+                $scope.queue = response.data.files || [];
+                $scope.authUser = response.data.authUser;
+            },
+            function () {
+                $scope.loadingFiles = false;
+            }
+            );
+    }
+    ]);
+
+imageUploaderApp.controller('FileDestroyController', [
+    '$scope', '$http',
+    function ($scope, $http) {
+        var file = $scope.file,
+        state;
+        if (file.url) {
+            file.$state = function () {
+                return state;
+            };
+            file.$destroy = function () {
+                state = 'pending';
+                return $http({
+                    url: "/api/images/"+file.id,
+                    method: "DELETE"
+                }).then(
+                function () {
+                    state = 'resolved';
+                    $scope.clear(file);
+                },
+                function () {
+                    state = 'rejected';
+                }
+                );
+            };
+        } else if (!file.$cancel && !file._index) {
+            file.$cancel = function () {
+                $scope.clear(file);
+            };
+        }
+    }
+    ]);
+
+// about page controller
+imageUploaderApp.controller('userController', function($scope, UserData) {
+        /*
      * Loader data i scope. $scope.userData sættes med alle brugere fra databsen, som returneres i response
      */
      $scope.load = function() {
@@ -127,6 +211,7 @@ var userApp = angular.module("userApp", []);
         $("#userModal").modal("show");
     }
 });
+
 function setScopeMessage(messages){
     var message = "";
     if(messages.name){

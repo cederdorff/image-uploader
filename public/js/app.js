@@ -1,28 +1,36 @@
 'use strict';
-var imageApp = angular.module('imageUploader', [
-    'blueimp.fileupload'
-    ]);
+var imageGalleryApp = angular.module('imageGalleryApp', ['ngRoute']);
 
-(function () {
-	var url = '/images';
-    imageApp.controller('ImageController', [
-        '$scope', '$http', '$filter', '$window',
-        function ($scope, $http) {
-            $scope.options = {
-                url: url
-            };
-            $scope.loadingFiles = true;
-            $http.get(url)
-            .then(
-                function (response) {
-                    $scope.loadingFiles = false;
-                    $scope.queue = response.data.files || [];
-                },
-                function () {
-                    $scope.loadingFiles = false;
-                }
-                );
-        }
-        ]);
 
-}());
+// ROUTING ===============================================
+// set our routing for this application
+// each route will pull in a different controller
+imageGalleryApp.config(function($routeProvider) {
+	$routeProvider
+	.when('/', {
+		templateUrl: 'home.php',
+	})
+	.when('/paul', {
+		templateUrl: 'paul.php',
+	});
+});
+
+imageGalleryApp.controller('imageGalleryController', [
+	'$scope', '$http', '$filter', '$window',
+	function ($scope, $http) {
+		$scope.options = {
+			url: '/images'
+		};
+		$scope.loadingFiles = true;
+		$http.get('/images')
+		.then(
+			function (response) {
+				$scope.loadingFiles = false;
+				$scope.queue = response.data.files || [];
+			},
+			function () {
+				$scope.loadingFiles = false;
+			}
+			);
+	}
+	]);

@@ -15,14 +15,6 @@ Route::get('/', function(){
 	return View::make('index');	
 });
 
-Route::get('/test', function(){
-	return View::make('admin.index');	
-});
-
-Route::get('/paul', function(){
-	return View::make('paul');	
-});
-
 // Login routes
 Route::post('login', array('uses' => 'LoginController@login'));
 Route::get('logout', array('uses' => 'LoginController@logout'));
@@ -32,20 +24,25 @@ Route::get('images', array('uses' => 'UploadController@index'));
 
 Route::group(array('before' => 'auth'), function(){
 	Route::get('/admin', function(){
-		return View::make('admin.uploader');	
+		return View::make('admin.index');	
 	});
 	Route::get('/uploader', function(){
 		return View::make('admin.uploader');	
+	});
+	Route::get('/users', function(){
+		return Redirect::to('admin.users');	
 	});
 	Route::group(array('before' => 'admin_auth'), function()
 	{
 		Route::get('/users', function(){
 			return View::make('admin.users');	
 		});
+		Route::group(array('prefix' => 'api'), function(){
+			Route::resource('users', 'UsersController');
+		});
 	});
 	Route::group(array('prefix' => 'api'), function(){
-	// Route ressource. Kan tilgås ved /api/users
-		Route::resource('users', 'UsersController');
+		Route::get('users', array('uses' => 'UsersController@index'));
 		Route::resource('images', 'UploadController');
 	});
 });
