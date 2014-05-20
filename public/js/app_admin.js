@@ -150,7 +150,7 @@ imageUploaderApp.controller('userController', function($scope, UserData) {
      $scope.saveUser = function(user) {
 
         if (user == null) {
-            $scope.message = "Please enter a name, email and password";
+            $scope.message = "Indtast venligst navn, email, adgangskode og brugertype";
         } else {
             if (user.id == null) { 
                 UserData.save(user).success(function(response) {
@@ -221,7 +221,10 @@ function setScopeMessage(messages){
         message += messages.email + " ";
     }
     if(messages.password){
-        message += messages.password;
+        message += messages.password + " ";
+    }
+    if(messages.type){
+        message += messages.type;
     }
     return message;
 }

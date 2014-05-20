@@ -36,7 +36,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title"></h4>
       </div>
-      <form class="form-horizontal simple-form" role="form">
+      <form class="form-horizontal simple-form" role="form" name="userForm">
         <div class="modal-body">
           <div class="form-group">
             <label for="inputName" class="col-sm-2 control-label">Navn</label>
@@ -54,6 +54,16 @@
             <label for="inputPassword3" class="col-sm-2 control-label">Adgangskode</label>
             <div class="col-sm-10">
               <input ng-model="user.password" type="password" class="form-control" id="inputPassword" placeholder="Adgangskode" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="type" class="col-sm-2 control-label">Brugertype</label>
+            <div class="col-sm-10">
+              <select ng-model="user.type" id="type" class="form-control" name="type" required>
+                <option value="admin" selected>Admin</option>
+                <option value="superuser">Superuser</option>
+                <option value="user">User</option>
+              </select>
             </div>
           </div>
           <div class="form-group" ng-show="message">
