@@ -30,7 +30,7 @@ class UsersController extends \BaseController {
     public function store() {
         $input = Input::all();
         
-        $v = Validator::make($input, User::$rules);
+        $v = Validator::make($input, User::$rulesNewUser);
         
         if ($v->fails()) {
             return Response::json(array('success' => false, 'message' => $v->messages()->toArray()));
@@ -39,6 +39,7 @@ class UsersController extends \BaseController {
             $user->name = Input::get('name');
             $user->email = Input::get('email');
             $user->password = Hash::make(Input::get('password'));
+            $user->type = Input::get('type');
             $user->save();
             return Response::json(array('success' => true, 'message' => 'New user created!'));
         }
@@ -58,7 +59,10 @@ class UsersController extends \BaseController {
             $user = User::find($id);
             $user->name = Input::get('name');
             $user->email = Input::get('email');
-            $user->password = Hash::make(Input::get('password'));
+            if($user->password){
+                $user->password = Hash::make(Input::get('password'));
+            }
+            $user->type = Input::get('type');
             $user->save();
             return Response::json(array('success' => true));
         } else {

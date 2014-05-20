@@ -20,10 +20,15 @@ class User extends Eloquent implements UserInterface, RemindableInterface
     protected $hidden = array('password');
     
     /**
+     * Rules for new user
+     */
+    public static $rulesNewUser = array('name' => 'required', 'email' => 'required|email', 'password' => 'required', 'type' => 'required');
+
+    /**
      * Rules
      */
-    public static $rules = array('name' => 'required', 'email' => 'required|email', 'password' => 'required');
-    
+    public static $rules = array('name' => 'required', 'email' => 'required|email', 'type' => 'required');
+
     /**
      * Checks if user is admin
      *
