@@ -59,7 +59,7 @@ class UsersController extends \BaseController {
             $user = User::find($id);
             $user->name = Input::get('name');
             $user->email = Input::get('email');
-            if($user->password){
+            if(Input::get('password')){
                 $user->password = Hash::make(Input::get('password'));
             }
             $user->type = Input::get('type');
