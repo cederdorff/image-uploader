@@ -5,6 +5,18 @@
 	text-align:center;	
 }
 
+.forsidestyling{
+	padding-top:50px;
+	text-align:center;
+
+}
+
+.forsidestyling p, a:hover, a:link{
+	color:#000;
+	font-weight:bold;
+	font-size:24px;
+	text-decoration:none;
+}
 
 .imgPort{
 	width:75%;

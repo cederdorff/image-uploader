@@ -27,6 +27,9 @@
     </div>
     <div class="container" ng-view></div> <!-- content -->
 
+	<div class="footer">
+    </div>
+
     <!-- scripts -->
     <script src="libs/jquery/jquery-v1.11.0.min.js"></script>
     <script src="libs/angularjs/angular.min.js"></script>
