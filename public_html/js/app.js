@@ -19,10 +19,10 @@ imageGalleryApp.controller('imageGalleryController', [
 	'$scope', '$http', '$filter', '$window',
 	function ($scope, $http) {
 		$scope.options = {
-			url: '/api/images'
+			url: '/images'
 		};
 		$scope.loadingFiles = true;
-		$http.get('/api/images')
+		$http.get('/images')
 		.then(
 			function (response) {
 				$scope.loadingFiles = false;

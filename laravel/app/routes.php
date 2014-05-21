@@ -20,7 +20,7 @@ Route::post('login', array('uses' => 'LoginController@login'));
 Route::get('logout', array('uses' => 'LoginController@logout'));
 Route::get('login', array('uses' => 'LoginController@index'));
 
-Route::get('api/images', array('uses' => 'UploadController@index'));
+Route::get('images', array('uses' => 'ImagesController@index'));
 
 Route::group(array('before' => 'auth'), function(){
 	Route::get('/admin', function(){
