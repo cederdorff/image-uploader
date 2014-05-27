@@ -25,7 +25,7 @@ class LoginController extends \BaseController {
                 return Redirect::to('login')->withErrors($validator)->withInput(Input::except('password'));
         	} else {
         		if (Auth::attempt(array('email' => Input::get('email'), 'password' => Input::get('password')))) {
-        			return Redirect::intended('/uploader');
+        			return Redirect::to('/admin');
         		} else {
         			return Redirect::to('login')->withErrors(array('message' => 'Ugyldig email eller adgangskode, prøv igen'))->withInput(Input::except('password'));
         		}

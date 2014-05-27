@@ -15,6 +15,14 @@ Route::get('/', function(){
 	return View::make('index');	
 });
 
+Route::group(array('prefix' => 'pages'), function(){
+	Route::get('home', function(){
+		return View::make('home');	
+	});
+	Route::get('paul', function(){
+		return View::make('paul');	
+	});
+});
 // Login routes
 Route::post('login', array('uses' => 'LoginController@login'));
 Route::get('logout', array('uses' => 'LoginController@logout'));
@@ -26,15 +34,12 @@ Route::group(array('before' => 'auth'), function(){
 	Route::get('/admin', function(){
 		return View::make('admin.index');	
 	});
-	Route::get('/uploader', function(){
+	Route::get('/pages/uploader', function(){
 		return View::make('admin.uploader');	
-	});
-	Route::get('/users', function(){
-		return Redirect::to('admin.users');	
 	});
 	Route::group(array('before' => 'admin_auth'), function()
 	{
-		Route::get('/users', function(){
+		Route::get('/pages/users', function(){
 			return View::make('admin.users');	
 		});
 		Route::group(array('prefix' => 'api'), function(){
@@ -45,4 +50,10 @@ Route::group(array('before' => 'auth'), function(){
 		Route::get('users', array('uses' => 'UsersController@index'));
 		Route::resource('images', 'UploadController');
 	});
+});
+
+// CATCH ALL ROUTE
+App::missing(function($exception)
+{
+	return View::make('index');
 });

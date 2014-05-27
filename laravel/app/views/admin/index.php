@@ -18,7 +18,6 @@
 	<!-- CSS adjustments for browsers with JavaScript disabled -->
 	<noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-noscript.css"></noscript>
 	<noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
-
 </head>
 
 <!-- apply our angular app -->
@@ -27,10 +26,10 @@
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-				<a class="navbar-brand" href="/">Fotouploader</a> </div>
+				<a class="navbar-brand" href="/" target="_self">Fotouploader</a> </div>
 				<div class="navbar-collapse collapse">
 					<ul class="nav navbar-nav">
-						<li class=""><a href="#">Uploader</a></li>
+						<li class=""><a href="#uploader">Uploader</a></li>
 						<li ng-show="authUser.type=='admin'"><a href="#users">Users</a></li>
 					</ul>
 					<ul class="nav navbar-nav">
@@ -38,7 +37,7 @@
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 						<li><a>{{authUser.name}}</a></li>
-						<li><a href="/logout">Log ud</a></li>
+						<li><a href="/logout" target="_self">Log ud</a></li>
 					</ul>
 				</div>
 				<!--/.nav-collapse --> 

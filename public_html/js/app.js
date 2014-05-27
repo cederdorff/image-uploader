@@ -5,14 +5,18 @@ var imageGalleryApp = angular.module('imageGalleryApp', ['ngRoute']);
 // ROUTING ===============================================
 // set our routing for this application
 // each route will pull in a different controller
-imageGalleryApp.config(function($routeProvider) {
+imageGalleryApp.config(function($routeProvider, $locationProvider) {
 	$routeProvider
 	.when('/', {
-		templateUrl: 'home.php',
+		templateUrl: 'pages/home',
 	})
 	.when('/paul', {
-		templateUrl: 'paul.php',
-	});
+		templateUrl: 'pages/paul',
+	})
+	.otherwise({ redirectTo: '/' });
+
+	//pretty urls
+	$locationProvider.html5Mode(true);
 });
 
 imageGalleryApp.controller('imageGalleryController', [

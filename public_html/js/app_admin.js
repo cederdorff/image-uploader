@@ -17,19 +17,22 @@ var imageUploaderApp = angular.module('imageUploaderAdmin', ['ngRoute', 'blueimp
 // ROUTING ===============================================
 // set our routing for this application
 // each route will pull in a different controller
-imageUploaderApp.config(function($routeProvider) {
-    
+imageUploaderApp.config(function($routeProvider, $locationProvider) {
+
     $routeProvider
-
-    .when('/', {
-        templateUrl: '/uploader',
+    .when('/', { 
+        redirectTo: '/uploader' 
     })
-
+    .when('/uploader', {
+        templateUrl: '/pages/uploader',
+    })
     .when('/users', {
-        templateUrl: '/users',
+        templateUrl: '/pages/users',
         controller: 'userController'
-    });
-
+    })
+    .otherwise({ redirectTo: '/uploader' });
+    // use the HTML5 History API
+    // $locationProvider.html5Mode(true);
 });
 
 /*

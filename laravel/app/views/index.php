@@ -18,6 +18,7 @@
     <!-- CSS adjustments for browsers with JavaScript disabled -->
     <noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-noscript.css"></noscript>
     <noscript><link rel="stylesheet" href="libs/jquery-file-upload/css/jquery.fileupload-ui-noscript.css"></noscript>
+    <base href="/"/>
 </head>
 
 <!-- apply our angular app -->
